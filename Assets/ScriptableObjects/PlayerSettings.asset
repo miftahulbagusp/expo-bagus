@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e414282c49426fb71f300019c207db, type: 3}
+  m_Name: PlayerSettings
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 1
+  minimumFallForce: -4
+  fallForceOffset: 3
+  delayAfterFall: 1
+  cameraLerpSpeed: 3
+  avatarTurningSpeed: 5
+  vrTurnAmount: 45
+  sfxWalk: {fileID: 8300000, guid: b02b109f6cbfd5f4ebd98bbb09712494, type: 3}
+  sfxRun: {fileID: 8300000, guid: c25b8a5b9f1680740914386a2e316c30, type: 3}
+  sfxLanding: {fileID: 8300000, guid: 83b9970ff7c675147bc4016260cd2603, type: 3}
+  defaultAvatarHeight: 1.85
+  droneSpeed: 5
+  altitudeSpeed: 5
+  droneMaxControlDistance: 300
+  mouseSensitivity: 0.1
+  touchSensitivity: 0.1
+  joystickSensitivity: 1

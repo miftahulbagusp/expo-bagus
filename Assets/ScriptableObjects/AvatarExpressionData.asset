@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057cf1f59d1880e4db005a6cfc4889a4, type: 3}
+  m_Name: AvatarExpressionData
+  m_EditorClassIdentifier: 
+  emojiList:
+  - code: Emoji_Smile
+    iconSprite: {fileID: 21300000, guid: 0c064695ce429ae4a9e0459c813b2d4a, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: 3f91605e381cf6848b31b52edf0a3ca7, type: 2}
+  - code: Emoji_Sad
+    iconSprite: {fileID: 21300000, guid: c6e181df556f7f4459257701e0803270, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: 525c7910e4b410747a50029d3f438cbd, type: 2}
+  - code: Emoji_Laugh
+    iconSprite: {fileID: 21300000, guid: 7c965bd20ccb0fa4e96838ad0707a43e, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: 57b00deb6210b08449d79a0c2f82b313, type: 2}
+  - code: Emoji_crying
+    iconSprite: {fileID: 21300000, guid: be66827be4ac32f418fbd4796b6bf585, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: 34763db8ac8b10e44b0580b906e6b305, type: 2}
+  - code: Emoji_What
+    iconSprite: {fileID: 21300000, guid: 5b2fe2f59bfdf5f4abbeac1fc9bdd3d8, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: 9e2552680190bf8439da3392cd36fc1f, type: 2}
+  - code: Emoji_Mocking
+    iconSprite: {fileID: 21300000, guid: d0b5a1ad79a846446964e46de4b2ee24, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: cbdd6cd113b16244aa6cd58ea96f233c, type: 2}
+  - code: Emoji_Lovely
+    iconSprite: {fileID: 21300000, guid: 0daf3f8157820f948a3901c6ac6b14fe, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: 5e99e49ec6ea88b49a7366f250f5e940, type: 2}
+  - code: Emoji_Dizzy
+    iconSprite: {fileID: 21300000, guid: 000afd50a72e34f45b70cfee32e34af0, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: 6e29fbf1903b9a84fa3cfed7dad44682, type: 2}
+  - code: Emoji_Cool
+    iconSprite: {fileID: 21300000, guid: 3d730d41bbb3f2143bc56218ec133f4b, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: be31ed697182f0940b495ca8dac3908c, type: 2}
+  - code: Emoji_Angry
+    iconSprite: {fileID: 21300000, guid: 5fd9901da29acc2478737c1fa8b310c3, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: d3cd778a2d02c2245a219b0f37ffc27b, type: 2}
+  - code: Emoji_Scream
+    iconSprite: {fileID: 21300000, guid: afd2e64f605ff3744b628d5fd62183f5, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: 8b01fa00e3dc69c40aa56a15bbd41570, type: 2}
+  - code: Emoji_Hot
+    iconSprite: {fileID: 21300000, guid: 9091d9dfc9154544fb01d452037f220c, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: a303ac4a1547b0144b23b3ebb3200560, type: 2}
+  - code: Emoji_Angel
+    iconSprite: {fileID: 21300000, guid: f07c107a1e920bc41ad79c58512d7e01, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: a939f802a20bb304ca431c50a3f42adf, type: 2}
+  - code: Emoji_party
+    iconSprite: {fileID: 21300000, guid: 89b7f933564bc794c87a1593350c71ad, type: 3}
+    audioSfx: {fileID: 8300000, guid: 11fae1da16aa85049ade5b6605ec3c03, type: 3}
+    particleMaterial: {fileID: 2100000, guid: 7a8642c457f143c44873e404245edf34, type: 2}
+  - code: Emoji_Wow
+    iconSprite: {fileID: 21300000, guid: 0c99b7970ff7f2d4e84003305f59a2fc, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: 5022d8173467df647a0f82bc1868f559, type: 2}
+  - code: Emoji_Clown
+    iconSprite: {fileID: 21300000, guid: 1173fa9d17673954497a2d37a4906f80, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: 6f7f01b5adb5fe64cb642d07a6560f3b, type: 2}
+  - code: Emoji_Cold
+    iconSprite: {fileID: 21300000, guid: b9750a062d2fed84c92e58f9241edd8f, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: a0cfa79a8b1dd5b40882ba781396176a, type: 2}
+  - code: Emoji_Evil
+    iconSprite: {fileID: 21300000, guid: b17a9a13f6493fa4786f1ae96afa4c6c, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: a144dc4010c20444ab419ebee3ab0410, type: 2}
+  - code: Emoji_Mual
+    iconSprite: {fileID: 21300000, guid: b6b7c5e9c3b4ae8448c265b5ac46d4b3, type: 3}
+    audioSfx: {fileID: 0}
+    particleMaterial: {fileID: 2100000, guid: f92ff7245b232bf4bb5d43102b9b8656, type: 2}
+  - code: Emoji_Pray 1
+    iconSprite: {fileID: 21300000, guid: b78e15908b29185428010c90a7a29635, type: 3}
+    audioSfx: {fileID: 8300000, guid: 98955e2faf446554782ae3ab35fd5269, type: 3}
+    particleMaterial: {fileID: 2100000, guid: ec59c90b3b8a5a0478f0653faf8396cc, type: 2}
+  - code: Emoji_Pray 2
+    iconSprite: {fileID: 21300000, guid: d1b406dec98d32f499f5e045cd050f98, type: 3}
+    audioSfx: {fileID: 8300000, guid: 98955e2faf446554782ae3ab35fd5269, type: 3}
+    particleMaterial: {fileID: 2100000, guid: 36179834e0087aa49b3660375cfa7594, type: 2}
+  emoteList:
+  - name: Dance
+    iconSprite: {fileID: 21300000, guid: 050ecf3997b6ce343b15b41989d399ea, type: 3}
+    isCollaborative: 0
+    clip: {fileID: 7400000, guid: 79570ef3b794aa4418869efc564a6fd6, type: 2}
+    expressionClip: {fileID: 7400000, guid: afbc20f64263bd84f8ee812b678d0bf7, type: 2}
+  - name: Happy
+    iconSprite: {fileID: 21300000, guid: fd539745a0cb53148a252663b48a8282, type: 3}
+    isCollaborative: 0
+    clip: {fileID: 7400000, guid: e35348f664c63d242aa0f90b39de8e25, type: 2}
+    expressionClip: {fileID: 7400000, guid: afbc20f64263bd84f8ee812b678d0bf7, type: 2}
+  - name: Crying
+    iconSprite: {fileID: 21300000, guid: 929ae46d2482a21488d8f4c84b9a18a9, type: 3}
+    isCollaborative: 0
+    clip: {fileID: 7400000, guid: d7729b6f81acfeb458f2ddd60d713ab7, type: 2}
+    expressionClip: {fileID: 7400000, guid: 7bef1a083ee9c2f49b95a1345d38fda9, type: 2}
+  - name: Dizzy
+    iconSprite: {fileID: 21300000, guid: 588ae64c10f16fe47ada4f124ae6e670, type: 3}
+    isCollaborative: 0
+    clip: {fileID: 7400000, guid: 9ea66beaa2de2e849814b8bb2e7e901b, type: 2}
+    expressionClip: {fileID: 7400000, guid: b0722ddad9ae75343a04a1ccd74c4887, type: 2}
+  - name: Taunt
+    iconSprite: {fileID: 21300000, guid: 555f492fd882c954dad538b21bb9b6cc, type: 3}
+    isCollaborative: 0
+    clip: {fileID: 7400000, guid: afd07d9a5a28248488e4dd969890ae50, type: 2}
+    expressionClip: {fileID: 0}
+  - name: Laugh
+    iconSprite: {fileID: 21300000, guid: 60494fd8c3da6b04fb2a3c67ba48a94e, type: 3}
+    isCollaborative: 0
+    clip: {fileID: 7400000, guid: 1eee68a2ecbeda344ab3105a476d2a76, type: 2}
+    expressionClip: {fileID: 0}
+  - name: Mocking
+    iconSprite: {fileID: 21300000, guid: 3df2d924c9ede6448a4c12ae3e9fed2a, type: 3}
+    isCollaborative: 0
+    clip: {fileID: 7400000, guid: af0a92af964374c4e905c9b7683b7155, type: 2}
+    expressionClip: {fileID: 0}
+  - name: Mad
+    iconSprite: {fileID: 21300000, guid: 4f878a9cc54b4084cb51dd689d13c505, type: 3}
+    isCollaborative: 0
+    clip: {fileID: 7400000, guid: 0ea42a5ac894c3841a8fb71232c50738, type: 2}
+    expressionClip: {fileID: 0}
+  - name: Thinking
+    iconSprite: {fileID: 21300000, guid: b2c664f8629bbd64f9893820bbc08ded, type: 3}
+    isCollaborative: 0
+    clip: {fileID: 7400000, guid: ed8853179028fa2429171d34e8a46296, type: 2}
+    expressionClip: {fileID: 0}
+  - name: Sad
+    iconSprite: {fileID: 21300000, guid: 9ae73b46d3f5a984293f10810aae8230, type: 3}
+    isCollaborative: 0
+    clip: {fileID: 7400000, guid: bf941dbee688a05488473a3f6aa1408f, type: 2}
+    expressionClip: {fileID: 7400000, guid: 7bef1a083ee9c2f49b95a1345d38fda9, type: 2}
+  - name: Samba
+    iconSprite: {fileID: 21300000, guid: 8e91a40788b15a143a9fd61c8840063d, type: 3}
+    isCollaborative: 0
+    clip: {fileID: 7400000, guid: b3db3f82e0e19da4f80cef9d7fab6b1b, type: 2}
+    expressionClip: {fileID: 7400000, guid: afbc20f64263bd84f8ee812b678d0bf7, type: 2}
+  - name: Pray
+    iconSprite: {fileID: 21300000, guid: 069823c2be2352b428f120e41184a4f3, type: 3}
+    isCollaborative: 0
+    clip: {fileID: 7400000, guid: 17223c1df9200494a8ae044d93da3c1d, type: 2}
+    expressionClip: {fileID: 0}
