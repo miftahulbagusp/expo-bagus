@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UI = UnityEngine.UI;
+using UnityUI = UnityEngine.UI;
 using Fusion;
 using Stats = Fusion.Simulation.Statistics;
 using Fusion.StatsInternal;
@@ -157,7 +157,7 @@ public class FusionStats : Fusion.Behaviour {
   const string CNVS_ICON = "\ufb26"; //"\u2261";
   const string CLSE_ICON = "x";
 
-  // Used by DrawIfAttribute to determine inspector visibility of fields are runtime.
+  // Used by Fusion.DrawIfAttribute to determine inspector visibility of fields are runtime.
   bool ShowColorControls => !Application.isPlaying && _modifyColors;
   bool IsNotPlaying      => !Application.isPlaying;
 
@@ -232,7 +232,7 @@ public class FusionStats : Fusion.Behaviour {
   ///  The size of the canvas when <see cref="CanvasType"/> is set to <see cref="StatCanvasTypes.GameObject"/>.
   /// </summary>
   [InlineHelp]
-  [DrawIf(nameof(_canvasType), (long)StatCanvasTypes.GameObject, Hide = true)]
+  [Fusion.DrawIf(nameof(_canvasType), (long)StatCanvasTypes.GameObject, Hide = true)]
   [Range(0, 20f)]
   [MultiPropertyDrawersFix]
   public float CanvasScale = 5f;
@@ -241,7 +241,7 @@ public class FusionStats : Fusion.Behaviour {
   /// The distance on the Z axis the canvas will be positioned. Allows moving the canvas in front of or behind the parent GameObject.
   /// </summary>
   [InlineHelp]
-  [DrawIf(nameof(_canvasType), (long)StatCanvasTypes.GameObject, Hide = true)]
+  [Fusion.DrawIf(nameof(_canvasType), (long)StatCanvasTypes.GameObject, Hide = true)]
   [Range(-10, 10f)]
   [MultiPropertyDrawersFix]
   public float CanvasDistance = 0f;
@@ -251,7 +251,7 @@ public class FusionStats : Fusion.Behaviour {
   /// </summary>
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(CanvasType), (long)StatCanvasTypes.GameObject, Hide = true)]
+  [Fusion.DrawIf(nameof(CanvasType), (long)StatCanvasTypes.GameObject, Hide = true)]
   [NormalizedRect(aspectRatio: 1)]
   [MultiPropertyDrawersFix]
   Rect _gameObjectRect = new Rect(0.0f, 0.0f, 0.3f, 1.0f);
@@ -270,7 +270,7 @@ public class FusionStats : Fusion.Behaviour {
   /// </summary>
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(CanvasType), (long)StatCanvasTypes.Overlay, Hide = true)]
+  [Fusion.DrawIf(nameof(CanvasType), (long)StatCanvasTypes.Overlay, Hide = true)]
   [NormalizedRect]
   [MultiPropertyDrawersFix]
   Rect _overlayRect = new Rect(0.0f, 0.0f, 0.3f, 1.0f);
@@ -343,7 +343,7 @@ public class FusionStats : Fusion.Behaviour {
   /// </summary>
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(GraphColumnCount), 0)]
+  [Fusion.DrawIf(nameof(GraphColumnCount), 0)]
   [Range(30, SCREEN_SCALE_W)]
   [MultiPropertyDrawersFix]
   int _graphMaxWidth = SCREEN_SCALE_W / 4;
@@ -384,7 +384,7 @@ public class FusionStats : Fusion.Behaviour {
   /// </summary>
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(EnableObjectStats))]
+  [Fusion.DrawIf(nameof(EnableObjectStats))]
   NetworkObject _object;
   public NetworkObject Object {
     get {
@@ -400,7 +400,7 @@ public class FusionStats : Fusion.Behaviour {
   /// </summary>
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(EnableObjectStats))]
+  [Fusion.DrawIf(nameof(EnableObjectStats))]
   [Range(0, 200)]
   [MultiPropertyDrawersFix]
   int _objectTitleHeight = 48;
@@ -417,7 +417,7 @@ public class FusionStats : Fusion.Behaviour {
   /// </summary>
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(EnableObjectStats))]
+  [Fusion.DrawIf(nameof(EnableObjectStats))]
   [Range(0, 200)]
   [MultiPropertyDrawersFix]
   int _objectIdsHeight = 60;
@@ -434,7 +434,7 @@ public class FusionStats : Fusion.Behaviour {
   /// </summary>
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(EnableObjectStats))]
+  [Fusion.DrawIf(nameof(EnableObjectStats))]
   [Range(0, 200)]
   [MultiPropertyDrawersFix]
   int _objectMetersHeight = 90;
@@ -519,7 +519,7 @@ public class FusionStats : Fusion.Behaviour {
   [InlineHelp]
   [SerializeField]
   [VersaMask]
-  [DrawIf(nameof(EnableObjectStats))]
+  [Fusion.DrawIf(nameof(EnableObjectStats))]
   [MultiPropertyDrawersFix]
   Stats.ObjStatFlags _includedObjStats;
   public Stats.ObjStatFlags IncludedObjectStats {
@@ -584,7 +584,7 @@ public class FusionStats : Fusion.Behaviour {
   /// regardless of the total number of peers running.
   /// </summary>
   [InlineHelp]
-  [DrawIf(nameof(EnforceSingle))]
+  [Fusion.DrawIf(nameof(EnforceSingle))]
   [SerializeField]
   public string Guid;
 
@@ -594,7 +594,7 @@ public class FusionStats : Fusion.Behaviour {
   [Header("Customization")]
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(IsNotPlaying), Hide = true)]
+  [Fusion.DrawIf(nameof(IsNotPlaying), Hide = true)]
   [MultiPropertyDrawersFix]
   private bool _modifyColors;
   public bool ModifyColors => _modifyColors;
@@ -604,7 +604,7 @@ public class FusionStats : Fusion.Behaviour {
   /// </summary>
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(ShowColorControls), Hide = true)]
+  [Fusion.DrawIf(nameof(ShowColorControls), Hide = true)]
   Color _graphColorGood = new Color(0.1f, 0.5f, 0.1f, 0.9f);
 
   /// <summary>
@@ -612,7 +612,7 @@ public class FusionStats : Fusion.Behaviour {
   /// </summary>
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(ShowColorControls), Hide = true)]
+  [Fusion.DrawIf(nameof(ShowColorControls), Hide = true)]
   Color _graphColorWarn = new Color(0.75f, 0.75f, 0.2f, 0.9f);
 
   /// <summary>
@@ -620,7 +620,7 @@ public class FusionStats : Fusion.Behaviour {
   /// </summary>
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(ShowColorControls), Hide = true)]
+  [Fusion.DrawIf(nameof(ShowColorControls), Hide = true)]
   Color _graphColorBad = new Color(0.9f, 0.2f, 0.2f, 0.9f);
 
   /// <summary>
@@ -628,32 +628,32 @@ public class FusionStats : Fusion.Behaviour {
   /// </summary>
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(ShowColorControls), Hide = true)]
+  [Fusion.DrawIf(nameof(ShowColorControls), Hide = true)]
   Color _graphColorFlag = new Color(0.8f, 0.75f, 0.0f, 1.0f);
 
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(ShowColorControls), Hide = true)]
+  [Fusion.DrawIf(nameof(ShowColorControls), Hide = true)]
   Color _fontColor = new Color(1.0f, 1.0f, 1.0f, 1f);
 
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(ShowColorControls), Hide = true)]
+  [Fusion.DrawIf(nameof(ShowColorControls), Hide = true)]
   Color PanelColor = new Color(0.3f, 0.3f, 0.3f, 1.0f);
 
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(ShowColorControls), Hide = true)]
+  [Fusion.DrawIf(nameof(ShowColorControls), Hide = true)]
   Color _simDataBackColor = new Color(0.1f, 0.08f, 0.08f, 1.0f);
 
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(ShowColorControls), Hide = true)]
+  [Fusion.DrawIf(nameof(ShowColorControls), Hide = true)]
   Color _netDataBackColor = new Color(0.15f, 0.14f, 0.09f, 1.0f);
 
   [InlineHelp]
   [SerializeField]
-  [DrawIf(nameof(ShowColorControls), Hide = true)]
+  [Fusion.DrawIf(nameof(ShowColorControls), Hide = true)]
   Color _objDataBackColor = new Color(0.0f, 0.2f, 0.4f, 1.0f);
 
   // IFusionStats interface requirements
@@ -673,22 +673,22 @@ public class FusionStats : Fusion.Behaviour {
   [NonSerialized] List<IFusionStatsView> _foundViews;
   [NonSerialized] List<FusionGraph> _foundGraphs;
 
-  [SerializeField] [HideInInspector] UI.Text _titleText;
+  [SerializeField] [HideInInspector] UnityUI.Text _titleText;
 
-  [SerializeField] [HideInInspector] UI.Text _clearIcon;
-  [SerializeField] [HideInInspector] UI.Text _pauseIcon;
-  [SerializeField] [HideInInspector] UI.Text _togglIcon;
-  [SerializeField] [HideInInspector] UI.Text _closeIcon;
-  [SerializeField] [HideInInspector] UI.Text _canvsIcon;
+  [SerializeField] [HideInInspector] UnityUI.Text _clearIcon;
+  [SerializeField] [HideInInspector] UnityUI.Text _pauseIcon;
+  [SerializeField] [HideInInspector] UnityUI.Text _togglIcon;
+  [SerializeField] [HideInInspector] UnityUI.Text _closeIcon;
+  [SerializeField] [HideInInspector] UnityUI.Text _canvsIcon;
 
-  [SerializeField] [HideInInspector] UI.Text _clearLabel;
-  [SerializeField] [HideInInspector] UI.Text _pauseLabel;
-  [SerializeField] [HideInInspector] UI.Text _togglLabel;
-  [SerializeField] [HideInInspector] UI.Text _closeLabel;
-  [SerializeField] [HideInInspector] UI.Text _canvsLabel;
-  [SerializeField] [HideInInspector] UI.Text _objectNameText;
+  [SerializeField] [HideInInspector] UnityUI.Text _clearLabel;
+  [SerializeField] [HideInInspector] UnityUI.Text _pauseLabel;
+  [SerializeField] [HideInInspector] UnityUI.Text _togglLabel;
+  [SerializeField] [HideInInspector] UnityUI.Text _closeLabel;
+  [SerializeField] [HideInInspector] UnityUI.Text _canvsLabel;
+  [SerializeField] [HideInInspector] UnityUI.Text _objectNameText;
 
-  [SerializeField] [HideInInspector] UI.GridLayoutGroup _graphGridLayoutGroup;
+  [SerializeField] [HideInInspector] UnityUI.GridLayoutGroup _graphGridLayoutGroup;
 
   [SerializeField] [HideInInspector] Canvas _canvas;
   [SerializeField] [HideInInspector] RectTransform _canvasRT;
@@ -705,13 +705,13 @@ public class FusionStats : Fusion.Behaviour {
   [SerializeField] [HideInInspector] RectTransform _clientIdPanelRT;
   [SerializeField] [HideInInspector] RectTransform _authorityPanelRT;
 
-  [SerializeField] [HideInInspector] UI.Button _titleButton;
-  [SerializeField] [HideInInspector] UI.Button _objctButton;
-  [SerializeField] [HideInInspector] UI.Button _clearButton;
-  [SerializeField] [HideInInspector] UI.Button _togglButton;
-  [SerializeField] [HideInInspector] UI.Button _pauseButton;
-  [SerializeField] [HideInInspector] UI.Button _closeButton;
-  [SerializeField] [HideInInspector] UI.Button _canvsButton;
+  [SerializeField] [HideInInspector] UnityUI.Button _titleButton;
+  [SerializeField] [HideInInspector] UnityUI.Button _objctButton;
+  [SerializeField] [HideInInspector] UnityUI.Button _clearButton;
+  [SerializeField] [HideInInspector] UnityUI.Button _togglButton;
+  [SerializeField] [HideInInspector] UnityUI.Button _pauseButton;
+  [SerializeField] [HideInInspector] UnityUI.Button _closeButton;
+  [SerializeField] [HideInInspector] UnityUI.Button _canvsButton;
 
   public Rect CurrentRect => _canvasType == StatCanvasTypes.GameObject ? _gameObjectRect : _overlayRect;
 
@@ -993,12 +993,12 @@ public class FusionStats : Fusion.Behaviour {
     if (Runner && Runner.IsRunning) {
       RunnerVisibilityNode.AddVisibilityNodes(_canvasRT.gameObject, Runner);
     }
-    var scaler = _canvasRT.gameObject.AddComponent<UI.CanvasScaler>();
-    scaler.uiScaleMode = UI.CanvasScaler.ScaleMode.ScaleWithScreenSize;
+    var scaler = _canvasRT.gameObject.AddComponent<UnityUI.CanvasScaler>();
+    scaler.uiScaleMode = UnityUI.CanvasScaler.ScaleMode.ScaleWithScreenSize;
     scaler.referenceResolution = new Vector2(SCREEN_SCALE_W, SCREEN_SCALE_H);
     scaler.matchWidthOrHeight = .4f;
 
-    _canvasRT.gameObject.AddComponent<UI.GraphicRaycaster>();
+    _canvasRT.gameObject.AddComponent<UnityUI.GraphicRaycaster>();
 
 #if UNITY_EDITOR
     _guidesRT = _canvasRT.MakeGuides();
@@ -1016,7 +1016,7 @@ public class FusionStats : Fusion.Behaviour {
       .SetAnchors(0.0f, 1.0f, 0.75f, 1.0f)
       .SetOffsets(MARGIN, -MARGIN, 0.0f, -MARGIN);
 
-    _titleButton = _titleRT.gameObject.AddComponent<UI.Button>();
+    _titleButton = _titleRT.gameObject.AddComponent<UnityUI.Button>();
     _titleText   = _titleRT.AddText(_runner ? _runner.name : "Disconnected", TextAnchor.UpperCenter, _fontColor);
     _titleText.raycastTarget = true;
 
@@ -1026,7 +1026,7 @@ public class FusionStats : Fusion.Behaviour {
       .SetAnchors(0.0f, 1.0f, 0.0f, 0.75f)
       .SetOffsets(MARGIN, -MARGIN, MARGIN, 0);
 
-    var buttonsGrid = _buttonsRT.gameObject.AddComponent<UI.HorizontalLayoutGroup>();
+    var buttonsGrid = _buttonsRT.gameObject.AddComponent<UnityUI.HorizontalLayoutGroup>();
     buttonsGrid.childControlHeight = true;
     buttonsGrid.childControlWidth = true;
     buttonsGrid.spacing = MARGIN;
@@ -1052,7 +1052,7 @@ public class FusionStats : Fusion.Behaviour {
       .ExpandTopAnchor(MARGIN)
       .AddCircleSprite(_objDataBackColor);
 
-    _objctButton = _objectTitlePanelRT.gameObject.AddComponent<UI.Button>();
+    _objctButton = _objectTitlePanelRT.gameObject.AddComponent<UnityUI.Button>();
 
     var objectTitleRT = _objectTitlePanelRT
       .CreateRectTransform("Object Name")
@@ -1574,7 +1574,7 @@ public class FusionStats : Fusion.Behaviour {
         graphColCount = _foundGraphs.Count;
       }
 
-      _graphGridLayoutGroup.constraint = UI.GridLayoutGroup.Constraint.FixedColumnCount;
+      _graphGridLayoutGroup.constraint = UnityUI.GridLayoutGroup.Constraint.FixedColumnCount;
       _graphGridLayoutGroup.constraintCount = graphColCount;
 
       var cellwidth = _graphsLayoutRT.rect.width / graphColCount - MARGIN;

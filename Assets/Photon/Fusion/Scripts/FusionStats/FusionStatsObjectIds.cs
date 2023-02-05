@@ -1,19 +1,19 @@
 
 using UnityEngine;
 using Fusion.StatsInternal;
-using UI = UnityEngine.UI;
+using UnityUI = UnityEngine.UI;
 
 public class FusionStatsObjectIds : Fusion.Behaviour, IFusionStatsView {
 
   protected const int PAD = FusionStatsUtilities.PAD;
   protected const int MARGIN = FusionStatsUtilities.MARGIN;
 
-  [SerializeField] [HideInInspector] UI.Text _inputValueText;
-  [SerializeField] [HideInInspector] UI.Text _stateValueText;
-  [SerializeField] [HideInInspector] UI.Text _objectIdLabel;
+  [SerializeField] [HideInInspector] UnityUI.Text _inputValueText;
+  [SerializeField] [HideInInspector] UnityUI.Text _stateValueText;
+  [SerializeField] [HideInInspector] UnityUI.Text _objectIdLabel;
 
-  [SerializeField] [HideInInspector] UI.Image _stateAuthBackImage;
-  [SerializeField] [HideInInspector] UI.Image _inputAuthBackImage;
+  [SerializeField] [HideInInspector] UnityUI.Image _stateAuthBackImage;
+  [SerializeField] [HideInInspector] UnityUI.Image _inputAuthBackImage;
 
   FusionStats _fusionStats;
 
@@ -90,7 +90,7 @@ public class FusionStatsObjectIds : Fusion.Behaviour, IFusionStatsView {
     }
   }
 
-  RectTransform AddAuthorityPanel(RectTransform parent, string label, ref UI.Text valueText, ref UI.Image backImage) {
+  RectTransform AddAuthorityPanel(RectTransform parent, string label, ref UnityUI.Text valueText, ref UnityUI.Image backImage) {
     var fontColor = _fusionStats.FontColor;
 
     var authIdPanelRT = parent.CreateRectTransform($"{label} Id Panel", true)

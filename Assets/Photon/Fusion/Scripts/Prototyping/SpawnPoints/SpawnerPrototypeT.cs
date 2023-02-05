@@ -28,7 +28,7 @@ public class SpawnerPrototype<T> : SimulationBehaviour, IPlayerJoined, IPlayerLe
   /// This allows players to be spawned with Player StateAuthority. Only applicable to Shared Mode.
   /// </summary>
   [InlineHelp]
-  [DrawIf(nameof(_AllowClientObjects), Hide = true)]
+  [Fusion.DrawIf(nameof(_AllowClientObjects), Hide = true)]
   [MultiPropertyDrawersFix]
   public AuthorityOptions StateAuthority;
   protected bool _AllowClientObjects {

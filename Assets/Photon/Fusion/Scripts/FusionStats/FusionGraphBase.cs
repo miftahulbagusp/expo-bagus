@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using Fusion;
-using UI = UnityEngine.UI;
+using UnityUI = UnityEngine.UI;
 using Stats = Fusion.Simulation.Statistics;
 using Fusion.StatsInternal;
 
@@ -19,8 +19,8 @@ public abstract class FusionGraphBase : Fusion.Behaviour, IFusionStatsView {
   protected const int MRGN = FusionStatsUtilities.MARGIN;
   protected const int MAX_FONT_SIZE_WITH_GRAPH = 24;
 
-  [SerializeField] [HideInInspector] protected UI.Text  LabelTitle;
-  [SerializeField] [HideInInspector] protected UI.Image BackImage;
+  [SerializeField] [HideInInspector] protected UnityUI.Text  LabelTitle;
+  [SerializeField] [HideInInspector] protected UnityUI.Image BackImage;
 
   /// <summary>
   /// Which section of the Fusion engine is being monitored. In combination with StatId, this selects the stat being monitored.
