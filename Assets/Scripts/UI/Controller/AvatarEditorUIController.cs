@@ -233,8 +233,8 @@ namespace UI.Controller
                     
                     if (_isMale)
                     {
-                        maleAvatarProperties.headMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.FaceTypePath + ResourcePath.GuestPath + genderPath + data.meshFileName);
-                        maleAvatarProperties.headMeshRendered.material = Resources.Load<Material>(ResourcePath.FaceTypeMaterialPath + ResourcePath.GuestPath + genderPath + data.meshFileName);
+                        maleAvatarProperties.headMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.HeadMeshPath + genderPath + data.meshFileName);
+                        maleAvatarProperties.headMeshRendered.material = Resources.Load<Material>(ResourcePath.HeadMaterialPath + genderPath + data.meshFileName);
                         
                         skinMaterial = maleAvatarProperties.headMeshRendered.material;
                         skinMaterial.SetFloat("_Tone", skinTone);
@@ -244,8 +244,8 @@ namespace UI.Controller
                     }
                     else
                     {
-                        femaleAvatarProperties.headMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.FaceTypePath + ResourcePath.GuestPath + genderPath + data.meshFileName);
-                        femaleAvatarProperties.headMeshRendered.material = Resources.Load<Material>(ResourcePath.FaceTypeMaterialPath + ResourcePath.GuestPath + genderPath + data.meshFileName);
+                        femaleAvatarProperties.headMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.HeadMeshPath + genderPath + data.meshFileName);
+                        femaleAvatarProperties.headMeshRendered.material = Resources.Load<Material>(ResourcePath.HeadMaterialPath + genderPath + data.meshFileName);
                         
                         skinMaterial = femaleAvatarProperties.headMeshRendered.material;
                         skinMaterial.SetFloat("_Tone", skinTone);
@@ -257,7 +257,7 @@ namespace UI.Controller
                 case AvatarDataList.AvatarDataType.Hair:
                     if (_isMale)
                     {
-                        maleAvatarProperties.hairMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.HairStylePath + ResourcePath.GuestPath + genderPath + data.meshFileName);
+                        maleAvatarProperties.hairMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.HairstylesMeshPath + genderPath + data.meshFileName);
                         Material hairMaterial = maleAvatarProperties.hairMeshRendered.material;
                         hairMaterial.color = view.hairColorPicker.CurrentColor;
                         maleAvatarProperties.hairMeshRendered.material = hairMaterial;
@@ -266,7 +266,7 @@ namespace UI.Controller
                     }
                     else
                     {
-                        femaleAvatarProperties.hairMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.HairStylePath + ResourcePath.GuestPath + genderPath + data.meshFileName);
+                        femaleAvatarProperties.hairMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.HairstylesMeshPath + genderPath + data.meshFileName);
                         Material hairMaterial = femaleAvatarProperties.hairMeshRendered.material;
                         hairMaterial.color = view.hairColorPicker.CurrentColor;
                         femaleAvatarProperties.hairMeshRendered.material = hairMaterial;
@@ -280,10 +280,10 @@ namespace UI.Controller
                         skinMaterial = maleAvatarProperties.headMeshRendered.material;
                         
                         mats = maleAvatarProperties.bodyMeshRendered.materials;
-                        mats[0] = Resources.Load<Material>(ResourcePath.OutfitMaterialPath + ResourcePath.GuestPath + genderPath + data.meshFileName);                        
+                        mats[0] = Resources.Load<Material>(ResourcePath.CostumesMaterialPath + genderPath + data.meshFileName);                        
                         mats[1] = skinMaterial;
                         
-                        maleAvatarProperties.bodyMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.OutfitPath + ResourcePath.GuestPath + genderPath + data.meshFileName);
+                        maleAvatarProperties.bodyMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.CostumesMeshPath + genderPath + data.meshFileName);
                         maleAvatarProperties.bodyMeshRendered.materials = mats;
 
                         _maleDataModel.OutfitID = data.id;
@@ -293,10 +293,10 @@ namespace UI.Controller
                         skinMaterial = femaleAvatarProperties.headMeshRendered.material;
                         
                         mats = femaleAvatarProperties.bodyMeshRendered.materials;
-                        mats[0] = Resources.Load<Material>(ResourcePath.OutfitMaterialPath + ResourcePath.GuestPath + genderPath + data.meshFileName);                        
+                        mats[0] = Resources.Load<Material>(ResourcePath.CostumesMaterialPath + genderPath + data.meshFileName);                        
                         mats[1] = skinMaterial;
                         
-                        femaleAvatarProperties.bodyMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.OutfitPath + ResourcePath.GuestPath + genderPath + data.meshFileName);
+                        femaleAvatarProperties.bodyMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.CostumesMeshPath + genderPath + data.meshFileName);
                         femaleAvatarProperties.bodyMeshRendered.materials = mats;
 
                         _femaleDataModel.OutfitID = data.id;
@@ -305,20 +305,20 @@ namespace UI.Controller
                 case AvatarDataList.AvatarDataType.Glasses:
                     if (_isMale)
                     {
-                        maleAvatarProperties.glassesMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.AccessoriesGlassesPath + ResourcePath.GuestPath + genderPath + data.meshFileName);
+                        maleAvatarProperties.glassesMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.GlassesMeshPath + genderPath + data.meshFileName);
                         
                         Material[] matsAcc = maleAvatarProperties.glassesMeshRendered.materials;
-                        matsAcc[0] = Resources.Load<Material>(ResourcePath.AccessoriesGlassesMaterialPath + ResourcePath.GuestPath + genderPath + data.meshFileName);
+                        matsAcc[0] = Resources.Load<Material>(ResourcePath.GlassesMaterialPath + genderPath + data.meshFileName);
                         maleAvatarProperties.glassesMeshRendered.materials = matsAcc;
 
                         _maleDataModel.AccessoriesGlassesID = data.id;
                     }
                     else
                     {
-                        femaleAvatarProperties.glassesMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.AccessoriesGlassesPath + ResourcePath.GuestPath + genderPath + data.meshFileName);
+                        femaleAvatarProperties.glassesMeshRendered.sharedMesh = Resources.Load<Mesh>(ResourcePath.GlassesMeshPath + genderPath + data.meshFileName);
                         
                         Material[] matsAcc = femaleAvatarProperties.glassesMeshRendered.materials;
-                        matsAcc[0] = Resources.Load<Material>(ResourcePath.AccessoriesGlassesMaterialPath + ResourcePath.GuestPath + genderPath + data.meshFileName);
+                        matsAcc[0] = Resources.Load<Material>(ResourcePath.GlassesMaterialPath + genderPath + data.meshFileName);
                         femaleAvatarProperties.glassesMeshRendered.materials = matsAcc;
 
                         _femaleDataModel.AccessoriesGlassesID = data.id;

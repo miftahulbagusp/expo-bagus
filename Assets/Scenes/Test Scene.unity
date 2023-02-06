@@ -213,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 215620451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 5}
+  m_LocalScale: {x: 30, y: 1, z: 30}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -246,6 +246,80 @@ Material:
     - _Height: 101
     - _LineWeight: 0
     - _PixelWorldScale: 0.4360243
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _Width: 401
+    m_Colors:
+    - _Radius: {r: 20, g: 20, b: 20, a: 20}
+  m_BuildTextureStacks: []
+--- !u!21 &655907306
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas/UI/Round Rect UI
+  m_Shader: {fileID: 4800000, guid: 809d80e834383df4283a819d48f9f38d, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ColorMask: 15
+    - _Height: 71
+    - _LineWeight: 0
+    - _PixelWorldScale: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _Width: 71
+    m_Colors:
+    - _Radius: {r: 20, g: 20, b: 20, a: 20}
+  m_BuildTextureStacks: []
+--- !u!21 &876525477
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas/UI/Round Rect UI
+  m_Shader: {fileID: 4800000, guid: 809d80e834383df4283a819d48f9f38d, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ColorMask: 15
+    - _Height: 101
+    - _LineWeight: 0
+    - _PixelWorldScale: 1
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -422,6 +496,43 @@ Material:
     m_Colors:
     - _Radius: {r: 20, g: 20, b: 20, a: 20}
   m_BuildTextureStacks: []
+--- !u!21 &1351994973
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas/UI/Round Rect UI
+  m_Shader: {fileID: 4800000, guid: 809d80e834383df4283a819d48f9f38d, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ColorMask: 15
+    - _Height: 71
+    - _LineWeight: 0
+    - _PixelWorldScale: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _Width: 71
+    m_Colors:
+    - _Radius: {r: 20, g: 20, b: 20, a: 20}
+  m_BuildTextureStacks: []
 --- !u!1001 &1550978031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,6 +540,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 461056006331897707, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461056006331897707, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461056006331897707, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461056006331897707, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1695833379579966582, guid: f53b108717ea49549badc7f096b4416c, type: 3}
       propertyPath: m_Material
       value: 
@@ -441,6 +568,26 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 582981554}
+    - target: {fileID: 2643212248390239897, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643212248390239897, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643212248390239897, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643212248390239897, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527109308287048266, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6622514218043152726, guid: f53b108717ea49549badc7f096b4416c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -489,12 +636,73 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManagers
       objectReference: {fileID: 0}
+    - target: {fileID: 7547718121228008197, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8718039414885969978, guid: f53b108717ea49549badc7f096b4416c, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 977267150}
+    - target: {fileID: 8770476120342623194, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770476120342623194, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770476120342623194, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770476120342623194, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170153452588243727, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f53b108717ea49549badc7f096b4416c, type: 3}
+--- !u!21 &1635439729
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas/UI/Round Rect UI
+  m_Shader: {fileID: 4800000, guid: 809d80e834383df4283a819d48f9f38d, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ColorMask: 15
+    - _Height: 71
+    - _LineWeight: 0
+    - _PixelWorldScale: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _Width: 71
+    m_Colors:
+    - _Radius: {r: 20, g: 20, b: 20, a: 20}
+  m_BuildTextureStacks: []
 --- !u!21 &1712837586
 Material:
   serializedVersion: 6

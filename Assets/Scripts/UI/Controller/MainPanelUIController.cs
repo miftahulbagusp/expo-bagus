@@ -12,16 +12,28 @@ namespace UI.Controller
 
         private bool _isMuted = true;
         private bool _isDeafen;
+
+        #if !UNITY_EDITOR && UNITY_WEBGL
+        [System.Runtime.InteropServices.DllImport("__Internal")]
+        private static extern bool IsMobile();
+        #endif
         
         public override void InitScreen()
         {
-            view.mobilePanel.SetActive(MultiPlatformHelper.Instance.IsPlayingOnAndroid());
+//            view.mobilePanel.SetActive(MultiPlatformHelper.Instance.IsPlayingOnAndroid());
             
             view.microphoneButton.onClick.AddListener(ToggleMicrophone);
             view.speakerButton.onClick.AddListener(ToggleSpeaker);
             view.exitButton.onClick.AddListener(ExitSession);
             
             view.jumpButton.onClick.AddListener(Jump);
+
+            var isMobile = false;
+            #if !UNITY_EDITOR && UNITY_WEBGL
+            isMobile = IsMobile();
+            #endif
+
+            view.mobilePanel.SetActive(isMobile);
         }
 
         public override void OpenScreen()

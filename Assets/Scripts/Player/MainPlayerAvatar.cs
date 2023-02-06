@@ -129,8 +129,8 @@ public class MainPlayerAvatar : BasePlayerAvatar
     protected virtual void LoadCustomAvatar(UserDataModel data)
     {
         var loadedObject = Resources.Load<GameObject>(data.IsMale
-            ? ResourcePath.CustomAbleAvatarMalePath
-            : ResourcePath.CustomAbleAvatarFemalePath
+            ? ResourcePath.CustomableAvatarMalePath
+            : ResourcePath.CustomableAvatarFemalePath
         );
         
         //TODO: Reenable this block when build
@@ -138,7 +138,6 @@ public class MainPlayerAvatar : BasePlayerAvatar
         {
             Destroy(_avatar);
         }
-
         _avatar = Instantiate(loadedObject, Vector3.zero, Quaternion.identity);
 
         ConfigAvatar(_avatar);
@@ -156,10 +155,10 @@ public class MainPlayerAvatar : BasePlayerAvatar
         
         // Use default avatar when data is null. Temporary code
         Debug.Log(data.FaceTypeID);
-        if (data.FaceTypeID == null) return;
+        // if (data.FaceTypeID == null) return;
         
-        headSkinnedMeshRenderer.sharedMesh = Resources.Load<Mesh>(ResourcePath.FaceTypePath + ResourcePath.GuestPath + genderPath + data.FaceTypeID);
-        headSkinnedMeshRenderer.material = Resources.Load<Material>(ResourcePath.FaceTypeMaterialPath + ResourcePath.GuestPath + genderPath + data.FaceTypeID);
+        headSkinnedMeshRenderer.sharedMesh = Resources.Load<Mesh>( ResourcePath.HeadMeshPath + genderPath + data.FaceTypeID);
+        headSkinnedMeshRenderer.material = Resources.Load<Material>( ResourcePath.HeadMaterialPath + genderPath + data.FaceTypeID);
         
         Material skinMaterial = headSkinnedMeshRenderer.material;
         skinMaterial.SetFloat("_Tone", data.SkinColor);
@@ -168,14 +167,14 @@ public class MainPlayerAvatar : BasePlayerAvatar
         Material[] mats = bodySkinnedMeshRenderer.materials;
         mats[1] = skinMaterial;
         
-        bodySkinnedMeshRenderer.sharedMesh = Resources.Load<Mesh>(ResourcePath.OutfitPath + ResourcePath.GuestPath + genderPath + data.OutfitID);
-        mats[0] = Resources.Load<Material>(ResourcePath.OutfitMaterialPath + ResourcePath.GuestPath + genderPath + data.OutfitID);
-        hairSkinnedMeshRenderer.sharedMesh = Resources.Load<Mesh>(ResourcePath.HairStylePath + ResourcePath.GuestPath + genderPath + data.HairStyleID);
+        bodySkinnedMeshRenderer.sharedMesh = Resources.Load<Mesh>( ResourcePath.CostumesMeshPath + genderPath + data.OutfitID);
+        mats[0] = Resources.Load<Material>(ResourcePath.CostumesMaterialPath  + genderPath + data.OutfitID);
+        hairSkinnedMeshRenderer.sharedMesh = Resources.Load<Mesh>(ResourcePath.HairstylesMeshPath  + genderPath + data.HairStyleID);
         
-        accSkinnedMeshRenderer.sharedMesh = Resources.Load<Mesh>(ResourcePath.AccessoriesGlassesPath + ResourcePath.GuestPath + genderPath + data.AccessoriesGlassesID);
+        accSkinnedMeshRenderer.sharedMesh = Resources.Load<Mesh>(ResourcePath.GlassesMeshPath  + genderPath + data.AccessoriesGlassesID);
         
         Material[] matsAcc = accSkinnedMeshRenderer.materials;
-        matsAcc[0] = Resources.Load<Material>(ResourcePath.AccessoriesGlassesMaterialPath + ResourcePath.GuestPath + genderPath + data.AccessoriesGlassesID);
+        matsAcc[0] = Resources.Load<Material>(ResourcePath.GlassesMaterialPath + genderPath + data.AccessoriesGlassesID);
         accSkinnedMeshRenderer.materials = matsAcc;
         
         bodySkinnedMeshRenderer.materials = mats;

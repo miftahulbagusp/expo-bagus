@@ -35,7 +35,7 @@ public class RoomManager : NetworkBehaviour
     {
         Instance = this;
         
-        Application.targetFrameRate = 60;
+        // Application.targetFrameRate = 60;
         
         Resources.UnloadUnusedAssets();
         GC.Collect();
