@@ -21,8 +21,8 @@ public class AvatarDataList : MonoBehaviour
     
     private List<AvatarSO> _maleDataList = new List<AvatarSO>();
     private List<AvatarSO> _femaleDataList = new List<AvatarSO>();
-    private readonly List<AvatarDataItem> _maleDataItemList = new List<AvatarDataItem>();
-    private readonly List<AvatarDataItem> _femaleDataItemList = new List<AvatarDataItem>();
+    private List<AvatarDataItem> _maleDataItemList = new List<AvatarDataItem>();
+    private List<AvatarDataItem> _femaleDataItemList = new List<AvatarDataItem>();
     
     private int _currentMaleItemIndex;
     private int _currentFemaleItemIndex;
@@ -43,8 +43,6 @@ public class AvatarDataList : MonoBehaviour
 
     public void SwitchGenderItem(bool isMale)
     {
-        if (_dataType == AvatarDataType.Skin) return;
-        
         foreach (var dataItem in _maleDataItemList)
         {
             dataItem.gameObject.SetActive(isMale);
@@ -56,16 +54,30 @@ public class AvatarDataList : MonoBehaviour
         }
     }
 
-    public void SelectRandomSkin()
+    public void SelectRandomSkin(bool isMale)
     {
-        int index = Random.Range(0, _maleDataItemList.Count - 1);
-            
-        _maleDataItemList[_currentMaleItemIndex].imageFrameGameObject.SetActive(false);
+        if (isMale)
+        {
+            int index = Random.Range(0, _maleDataItemList.Count - 1);
 
-        _currentMaleItemIndex = index;
-        _maleDataItemList[_currentMaleItemIndex].imageFrameGameObject.SetActive(true);  
-        
-        OnSkinItemSelected?.Invoke(index);
+            _maleDataItemList[_currentMaleItemIndex].imageFrameGameObject.SetActive(false);
+
+            _currentMaleItemIndex = index;
+            _maleDataItemList[_currentMaleItemIndex].imageFrameGameObject.SetActive(true);
+
+            OnSkinItemSelected?.Invoke(index);
+        }
+        else
+        {
+            int index = Random.Range(0, _femaleDataItemList.Count - 1);
+
+            _femaleDataItemList[_currentFemaleItemIndex].imageFrameGameObject.SetActive(false);
+
+            _currentFemaleItemIndex = index;
+            _femaleDataItemList[_currentFemaleItemIndex].imageFrameGameObject.SetActive(true);
+
+            OnSkinItemSelected?.Invoke(index);
+        }
     }
     
     public void SelectRandomData(bool isMale)
@@ -110,6 +122,14 @@ public class AvatarDataList : MonoBehaviour
     
     private void GenerateSkinListItem()
     {
+        GenerateSkinListItem(true, out _maleDataItemList);
+        GenerateSkinListItem(false, out _femaleDataItemList);
+    }
+
+    private void GenerateSkinListItem(bool isMale, out List<AvatarDataItem> avatarDataItemList)
+    {
+        avatarDataItemList = new List<AvatarDataItem>();
+        
         for (int i = 0; i < AssetReferenceDatabase.Instance.skinTones.Count; i++)
         {
             int index = i;
@@ -122,14 +142,24 @@ public class AvatarDataList : MonoBehaviour
                 AssetReferenceDatabase.Instance.baseSkinColor.b * AssetReferenceDatabase.Instance.skinTones[i],
                 1f
             );
+            
+            avatarDataItem.button.onClick.AddListener(delegate { OnButtonItemClickSkin(index, isMale); });
 
-            avatarDataItem.button.onClick.AddListener(delegate { OnButtonItemClickSkin(index); });
+            avatarDataItemList.Add(avatarDataItem);
 
-            _maleDataItemList.Add(avatarDataItem);
-
-            if (_currentMaleItemIndex == index)
+            if (isMale)
             {
-                avatarDataItem.imageFrameGameObject.SetActive(true);
+                if (_currentMaleItemIndex == index)
+                {
+                    avatarDataItem.imageFrameGameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                if (_currentFemaleItemIndex == index)
+                {
+                    avatarDataItem.imageFrameGameObject.SetActive(true);
+                }
             }
         }
     }
@@ -156,49 +186,60 @@ public class AvatarDataList : MonoBehaviour
                 break;
         }
 
-        for (int i = 0; i < _maleDataList.Count; i++)
+        GenerateDataListItem(_maleDataList, true, out _maleDataItemList);
+        GenerateDataListItem(_femaleDataList, false, out _femaleDataItemList);
+    }
+
+    private void GenerateDataListItem(List<AvatarSO> avatarDataList, bool isMale, out List<AvatarDataItem> avatarDataItemList)
+    {
+        avatarDataItemList = new List<AvatarDataItem>();
+
+        for (int i = 0; i < avatarDataList.Count; i++)
         {
             int index = i;
             AvatarDataItem avatarDataItem = Instantiate(itemPrefab, parentObject.transform);
 
             avatarDataItem.iconImage.gameObject.SetActive(true);
-            avatarDataItem.iconImage.sprite = _maleDataList[index].icon;
+            avatarDataItem.iconImage.sprite = isMale ? _maleDataList[index].icon : _femaleDataList[index].icon;
 
-            avatarDataItem.button.onClick.AddListener(delegate { OnButtonItemClickData(index, true, _maleDataList[index]); });
+            avatarDataItem.button.onClick.AddListener(delegate { OnButtonItemClickData(index, isMale, isMale ? _maleDataList[index] : _femaleDataList[index]); });
 
-            _maleDataItemList.Add(avatarDataItem);
+            avatarDataItemList.Add(avatarDataItem);
 
-            if (_currentMaleItemIndex == index)
+            if (isMale)
             {
-                avatarDataItem.imageFrameGameObject.SetActive(true);
+                if (_currentMaleItemIndex == index)
+                {
+                    avatarDataItem.imageFrameGameObject.SetActive(true);
+                }
             }
-        }
-
-        for (int i = 0; i < _femaleDataList.Count; i++)
-        {
-            int index = i;
-            AvatarDataItem avatarDataItem = Instantiate(itemPrefab, parentObject.transform);
-
-            avatarDataItem.iconImage.gameObject.SetActive(true);
-            avatarDataItem.iconImage.sprite = _femaleDataList[index].icon;
-
-            avatarDataItem.button.onClick.AddListener(delegate { OnButtonItemClickData(index, false, _femaleDataList[index]); });
-
-            _femaleDataItemList.Add(avatarDataItem);
-            
-            if (_currentFemaleItemIndex == index)
+            else
             {
-                avatarDataItem.imageFrameGameObject.SetActive(true);
+                if (_currentFemaleItemIndex == index)
+                {
+                    avatarDataItem.imageFrameGameObject.SetActive(true);
+                }
             }
         }
     }
 
-    private void OnButtonItemClickSkin(int index)
+    private void OnButtonItemClickSkin(int index, bool isMale)
     {
-        _maleDataItemList[_currentMaleItemIndex].imageFrameGameObject.SetActive(false);
+        if (isMale)
+        {
+            _maleDataItemList[_currentMaleItemIndex].imageFrameGameObject.SetActive(false);
 
-        _currentMaleItemIndex = index;
-        _maleDataItemList[_currentMaleItemIndex].imageFrameGameObject.SetActive(true);
+            _currentMaleItemIndex = index;
+            _maleDataItemList[_currentMaleItemIndex].imageFrameGameObject.SetActive(true);
+        }
+        else
+        {
+            _femaleDataItemList[_currentFemaleItemIndex].imageFrameGameObject.SetActive(false);
+
+            _currentFemaleItemIndex = index;
+            _femaleDataItemList[_currentFemaleItemIndex].imageFrameGameObject.SetActive(true);
+        }
+
         
         OnSkinItemSelected?.Invoke(index);
     }

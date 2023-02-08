@@ -177,7 +177,7 @@ namespace UI.Controller
 
         private void RandomAvatar()
         {
-            view.skinToneDataList.SelectRandomSkin();
+            view.skinToneDataList.SelectRandomSkin(_isMale);
             view.faceDataList.SelectRandomData(_isMale);
             view.hairDataList.SelectRandomData(_isMale);
             view.outfitDataList.SelectRandomData(_isMale);
@@ -190,6 +190,7 @@ namespace UI.Controller
 
         private void ChangeGender(bool isMale)
         {
+            view.skinToneDataList.SwitchGenderItem(isMale);
             view.faceDataList.SwitchGenderItem(isMale);
             view.hairDataList.SwitchGenderItem(isMale);
             view.outfitDataList.SwitchGenderItem(isMale);
@@ -211,22 +212,32 @@ namespace UI.Controller
             switch (dataType)
             {
                 case AvatarDataList.AvatarDataType.Skin:
-                    skinMaterial = maleAvatarProperties.headMeshRendered.material;
-                    skinMaterial.SetFloat("_Tone", AssetReferenceDatabase.Instance.skinTones[skinIndex]);
+                    if (_isMale)
+                    {
+                        skinMaterial = maleAvatarProperties.headMeshRendered.material;
+                        skinMaterial.SetFloat("_Tone", AssetReferenceDatabase.Instance.skinTones[skinIndex]);
 
-                    maleAvatarProperties.headMeshRendered.material = skinMaterial;
-                    femaleAvatarProperties.headMeshRendered.material = skinMaterial;
+                        maleAvatarProperties.headMeshRendered.material = skinMaterial;
+                    
+                        mats = maleAvatarProperties.bodyMeshRendered.materials;
+                        mats[1] = skinMaterial;
+                        maleAvatarProperties.bodyMeshRendered.materials = mats;
+                        
+                        _maleDataModel.SkinColor = AssetReferenceDatabase.Instance.skinTones[skinIndex];
+                    }
+                    else
+                    {
+                        skinMaterial = femaleAvatarProperties.headMeshRendered.material;
+                        skinMaterial.SetFloat("_Tone", AssetReferenceDatabase.Instance.skinTones[skinIndex]);
 
-                    mats = maleAvatarProperties.bodyMeshRendered.materials;
-                    mats[1] = skinMaterial;
-                    maleAvatarProperties.bodyMeshRendered.materials = mats;
+                        femaleAvatarProperties.headMeshRendered.material = skinMaterial;
 
-                    mats = femaleAvatarProperties.bodyMeshRendered.materials;
-                    mats[1] = skinMaterial;
-                    femaleAvatarProperties.bodyMeshRendered.materials = mats;
+                        mats = femaleAvatarProperties.bodyMeshRendered.materials;
+                        mats[1] = skinMaterial;
+                        femaleAvatarProperties.bodyMeshRendered.materials = mats;
 
-                    _maleDataModel.SkinColor = AssetReferenceDatabase.Instance.skinTones[skinIndex];
-                    _femaleDataModel.SkinColor = AssetReferenceDatabase.Instance.skinTones[skinIndex];
+                        _femaleDataModel.SkinColor = AssetReferenceDatabase.Instance.skinTones[skinIndex];
+                    }
                     break;
                 case AvatarDataList.AvatarDataType.Face:
                     float skinTone = maleAvatarProperties.headMeshRendered.material.GetFloat("_Tone");
