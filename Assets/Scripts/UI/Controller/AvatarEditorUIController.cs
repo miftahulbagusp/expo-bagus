@@ -113,6 +113,7 @@ namespace UI.Controller
             };
 
             view.nicknameInputField.text = $"user#{Random.Range(0000, 9999)}";
+            view.heightSlider.onValueChanged.AddListener(SetHeight);
 
             view.hairDataList.Init(2);
             view.hairDataList.OnDataItemSelected += so =>
@@ -200,6 +201,13 @@ namespace UI.Controller
             femaleAvatarProperties.gameObject.SetActive(!isMale);
 
             _isMale = isMale;
+        }
+
+        private void SetHeight(float value)
+        {
+            view.heightText.text = value.ToString();
+            maleAvatarProperties.gameObject.transform.localScale = new Vector3(value / 185, value / 185, value / 185);
+            femaleAvatarProperties.gameObject.transform.localScale = new Vector3(value / 175, value / 175, value / 175);
         }
 
         private void UpdateAvatar(AvatarDataList.AvatarDataType dataType, int skinIndex = 0, AvatarSO data = null)

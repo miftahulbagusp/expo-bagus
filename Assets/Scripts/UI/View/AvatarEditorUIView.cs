@@ -21,6 +21,8 @@ namespace UI.View
         public TMP_InputField nicknameInputField;
         public Button maleGenderButton;
         public Button femaleGenderButton;
+        public TMP_Text heightText;
+        public Slider heightSlider;
         
         public AvatarDataList skinToneDataList;
         public AvatarDataList faceDataList;
